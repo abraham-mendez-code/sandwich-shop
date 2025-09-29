@@ -1,3 +1,5 @@
+package com.pluralsight;
+
 import java.util.Scanner;
 
 public class SandwichShop {
@@ -9,9 +11,11 @@ public class SandwichShop {
 
         // Declare and initialize the regularPrice variable to store the regular size price
         double regularPrice = 5.45;
+        double regularLoaded = 1.0;
 
         // Declare and initialize the largePrice variable to store the large size price
         double largePrice = 8.95;
+        double largeLoaded = 1.75;
 
         // Print out message asking user for the size of their sandwich
         System.out.println("Welcome to the Sandwich Shop!\nWhat size will you be ordering today? " +
@@ -20,23 +24,42 @@ public class SandwichShop {
         // Declare and initialize the size variable and store next line of input
         String size = userInput.nextLine();
 
+        // Print out message asking user if they want their sandwich loaded
+        System.out.println("Would you like your sandwich \'loaded\'?");
+
+        // Declare and initialize the s variable to store user input
+        String s =  userInput.nextLine();
+
+        // Declare nad initialize the loaded variable to check if the user wants it loaded
+        boolean loaded = s.toLowerCase().contains("yes") || s.toLowerCase().contains("y");
+
         // Print out message asking user for their age
         System.out.println("What is your age?: ");
+
+        // Declare and initialize the age variable to contain input age
         int age = userInput.nextInt();
 
         // Declare and initialize cost variable to store the cost
         double cost = 0;
 
-        // Set the price depending on the content of the size variable
+        // Set the price depending on the content of the size variable and if the sandwich is loaded
         if (size.equalsIgnoreCase("r") || size.toLowerCase().contains("regular")) {
 
             cost = regularPrice;
-            System.out.printf("Your sandwich costs $%.2f.\n", cost);
+            System.out.printf("Your sandwich costs $%.2f\n", cost);
+            if (loaded) {
+                cost += regularLoaded;
+                System.out.printf("Your sandwich is loaded for an additional $%.2f\n", regularLoaded);
+            }
 
         } else if (size.equalsIgnoreCase("l") || size.toLowerCase().contains("large")) {
 
             cost = largePrice;
-            System.out.printf("Your sandwich costs $%.2f.\n", cost);
+            System.out.printf("Your sandwich costs $%.2f\n", cost);
+            if (loaded) {
+                cost += largeLoaded;
+                System.out.printf("Your sandwich is loaded for an additional $%.2f\n", largeLoaded);
+            }
 
         } else {
 
