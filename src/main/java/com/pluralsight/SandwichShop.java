@@ -4,6 +4,48 @@ import java.util.Scanner;
 
 public class SandwichShop {
 
+    /*
+        EXERCISE 1
+        Create a Java application named SandwichShop. This will be a point of sales
+        application to calculate the cost of a sandwich.
+        Remember: When creating a new Java project, create a new git repository and
+        commit your changes often! Don’t forget to push to github.com. Always create
+        the Github repository before creating a new Java project.
+            Step 1
+                Prompt the user for the size of the sandwich (1 or 2):
+                a. 1: Regular: base price $5.45
+                b. 2: Large: base price $8.95
+                Prompt the user for their age:
+                a. Student (17 years old or younger) — receive a 10% discount
+                b. Seniors (65 years old or older) — receive a 20% discount
+                Display the cost of the sandwich to the screen
+            Step 2
+                1. Ensure all your changes are committed and pushed to GitHub
+                2. Send your repository URL to your Instructor
+
+        EXERCISE 2
+        Modify the SandwichShop from the last exercise to allow customers to order a
+        "loaded" sandwich (double everything).
+            Step 1
+                Prompt the user for the size of the sandwich (1 or 2):
+                a. 1: Regular: base price $5.45
+                b. 2: Large: base price $8.95
+
+            Prompt the user if they would like the sandwich "loaded" (yes/no). If so there is
+            an additional cost for a loaded sandwich
+                a. Regular: $1.00
+                b. Large: $1.75
+
+            Prompt the user for their age:
+                a. Student (17 years old or younger) — receive a 10% discount
+                b. Seniors (65 years old or older) — receive a 20% discount
+            Display the cost of the sandwich to the screen
+
+            Step 2
+                1. Ensure all your changes are committed and pushed to GitHub
+                2. Send your repository URL to your Instructor
+     */
+
     public static void main(String[] args) {
 
         // Declare and initialize the userInput Scanner object to store system input
@@ -18,11 +60,15 @@ public class SandwichShop {
         double largeLoaded = 1.75;
 
         // Print out message asking user for the size of their sandwich
-        System.out.println("Welcome to the Sandwich Shop!\nWhat size will you be ordering today? " +
-                "\nAvailable sizes are \'Regular\'(R) and \'Large\'(L): ");
+        System.out.println("Welcome to the Sandwich Shop!" +
+                "\nAvailable sizes:\n\tRegular: $5.45 \n\tLarge: $8.95 ");
+
+        System.out.println("What size would you like?");
 
         // Declare and initialize the size variable and store next line of input
         String size = userInput.nextLine();
+
+
 
         // Print out message asking user if they want their sandwich loaded
         System.out.println("Would you like your sandwich \'loaded\'?");
@@ -63,7 +109,8 @@ public class SandwichShop {
 
         } else {
 
-            System.out.println("Invalid input please try again.");
+            System.out.println("Invalid size selection.");
+            System.exit(0);
 
         }
 
